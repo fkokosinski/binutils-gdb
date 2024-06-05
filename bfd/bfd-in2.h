@@ -1478,6 +1478,7 @@ enum bfd_architecture
 #define bfd_mach_h8300sn       5
 #define bfd_mach_h8300sx       6
 #define bfd_mach_h8300sxn      7
+  bfd_arch_pdp1,      /* DEC PDP-1.  */
   bfd_arch_pdp11,     /* DEC PDP-11.  */
   bfd_arch_powerpc,   /* PowerPC.  */
 #define bfd_mach_ppc           32
@@ -2247,6 +2248,7 @@ struct bfd
       struct ecoff_tdata *ecoff_obj_data;
       struct srec_data_struct *srec_data;
       struct verilog_data_struct *verilog_data;
+      struct dec_rim_data_struct *dec_rim_data;
       struct ihex_data_struct *ihex_data;
       struct tekhex_data_struct *tekhex_data;
       struct elf_obj_tdata *elf_obj_data;
@@ -7553,6 +7555,7 @@ enum bfd_flavour
   bfd_target_tekhex_flavour,
   bfd_target_srec_flavour,
   bfd_target_verilog_flavour,
+  bfd_target_dec_rim_flavour,
   bfd_target_ihex_flavour,
   bfd_target_som_flavour,
   bfd_target_msdos_flavour,

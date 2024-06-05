@@ -324,7 +324,7 @@ $ CFLAGS="/name=(as_is,shortened)" + -
   "/define=(" + DEFS + ")" + OPT
 $ FILES=FILES + "archive,archive64,archures,bfd,bfdio,binary,cache,coffgen,"+-
   "compress,corefile,dwarf2,elf,format,hash,ihex,init,libbfd,linker,"+-
-  "opncls,reloc,section,simple,srec,stab-syms,syms,targets,tekhex,verilog"
+  "opncls,reloc,section,simple,srec,stab-syms,syms,targets,tekhex,verilog,dec_rim"
 $ write sys$output "CFLAGS=",CFLAGS
 $ cflags_libbfd="/warning=(disable=missingreturn)"
 $ cflags_nil=""

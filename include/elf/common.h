@@ -455,6 +455,8 @@
 /* Old constant that might be in use by some software. */
 #define EM_OPENRISC		EM_OR1K
 
+#define EM_PDP1			0xFEFE
+
 /* C-SKY historically used 39, the same value as MCORE, from which the
    architecture was derived.  */
 #define EM_CSKY_OLD		EM_MCORE

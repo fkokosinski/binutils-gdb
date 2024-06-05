@@ -54,8 +54,10 @@
 /* Convert between addresses in bytes and sizes in octets.
    For currently supported targets, octets_per_byte is always a power
    of two, so we can use shifts.  */
-#define TO_ADDR(X) ((X) >> opb_shift)
-#define TO_SIZE(X) ((X) << opb_shift)
+//#define TO_ADDR(X) ((X) >> opb_shift)
+//#define TO_SIZE(X) ((X) << opb_shift)
+#define TO_ADDR(X) ((X) / 3)
+#define TO_SIZE(X) ((X) * 3)
 
 /* Local variables.  */
 static struct obstack stat_obstack;
@@ -3508,7 +3510,7 @@ init_opb (asection *s)
 	x >>= 1;
 	++opb_shift;
       }
-  ASSERT (x == 1);
+  //ASSERT (x == 1);
 }
 
 /* Open all the input files.  */

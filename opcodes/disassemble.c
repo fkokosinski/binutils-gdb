@@ -77,6 +77,7 @@
 #define ARCH_nios2
 #define ARCH_ns32k
 #define ARCH_or1k
+#define ARCH_pdp1
 #define ARCH_pdp11
 #define ARCH_pj
 #define ARCH_powerpc
@@ -359,6 +360,11 @@ disassembler (enum bfd_architecture a,
 #ifdef ARCH_or1k
     case bfd_arch_or1k:
       disassemble = print_insn_or1k;
+      break;
+#endif
+#ifdef ARCH_pdp1
+    case bfd_arch_pdp1:
+      disassemble = print_insn_pdp1;
       break;
 #endif
 #ifdef ARCH_pdp11

@@ -337,6 +337,7 @@ ALL_EMULATION_SOURCES = \
 	enios2linux.c \
 	ens32knbsd.c \
 	epc532macha.c \
+	eelf32pdp1 \
 	epdp11.c \
 	epjelf.c \
 	epjlelf.c \

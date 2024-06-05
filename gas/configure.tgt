@@ -358,6 +358,8 @@ case ${generic_target} in
   or1k*-*-elf | or1k*-*-rtems*) 	fmt=elf endian=big ;;
   or1k*-*-linux*)			fmt=elf em=linux endian=big ;;
 
+  pdp1-*-*)				fmt=elf ;;
+
   pj*)					fmt=elf ;;
 
   ppc-*-aix5.[01])			fmt=coff em=aix5 ;;

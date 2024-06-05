@@ -79,7 +79,7 @@ BFD32_LIBS = \
 	coff-bfd.lo compress.lo corefile.lo elf-properties.lo format.lo \
 	hash.lo libbfd.lo linker.lo merge.lo opncls.lo reloc.lo \
 	section.lo simple.lo stab-syms.lo stabs.lo syms.lo targets.lo \
-	binary.lo ihex.lo srec.lo tekhex.lo verilog.lo
+	binary.lo ihex.lo srec.lo tekhex.lo verilog.lo dec-rim.lo
 
 BFD64_LIBS = archive64.lo
 
@@ -88,7 +88,7 @@ BFD32_LIBS_CFILES = \
 	compress.c corefile.c elf-properties.c format.c hash.c \
 	libbfd.c linker.c merge.c opncls.c reloc.c \
 	section.c simple.c stab-syms.c stabs.c syms.c targets.c \
-	binary.c ihex.c srec.c tekhex.c verilog.c
+	binary.c ihex.c srec.c tekhex.c verilog.c dec-rim.c
 
 BFD64_LIBS_CFILES = archive64.c
 
@@ -147,6 +147,7 @@ ALL_MACHINES = \
 	cpu-nios2.lo \
 	cpu-ns32k.lo \
 	cpu-or1k.lo \
+	cpu-pdp1.lo \
 	cpu-pdp11.lo \
 	cpu-pj.lo \
 	cpu-powerpc.lo \
@@ -231,6 +232,7 @@ ALL_MACHINES_CFILES = \
 	cpu-nios2.c \
 	cpu-ns32k.c \
 	cpu-or1k.c \
+	cpu-pdp1.c \
 	cpu-pdp11.c \
 	cpu-pj.c \
 	cpu-powerpc.c \
@@ -335,6 +337,7 @@ BFD32_BACKENDS = \
 	elf32-nds32.lo \
 	elf32-nios2.lo \
 	elf32-or1k.lo \
+	elf32-pdp1.lo \
 	elf32-pj.lo \
 	elf32-ppc.lo \
 	elf32-pru.lo \
@@ -470,6 +473,7 @@ BFD32_BACKENDS_CFILES = \
 	elf32-nds32.c \
 	elf32-nios2.c \
 	elf32-or1k.c \
+	elf32-pdp1.c \
 	elf32-pj.c \
 	elf32-ppc.c \
 	elf32-pru.c \

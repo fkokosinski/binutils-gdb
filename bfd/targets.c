@@ -161,6 +161,7 @@ EXTERNAL
 .  bfd_target_tekhex_flavour,
 .  bfd_target_srec_flavour,
 .  bfd_target_verilog_flavour,
+.  bfd_target_dec_rim_flavour,
 .  bfd_target_ihex_flavour,
 .  bfd_target_som_flavour,
 .  bfd_target_msdos_flavour,
@@ -842,6 +843,7 @@ extern const bfd_target ns32k_aout_pc532mach_vec;
 extern const bfd_target ns32k_aout_pc532nbsd_vec;
 extern const bfd_target or1k_elf32_vec;
 extern const bfd_target pdb_vec;
+extern const bfd_target pdp1_elf32_vec;
 extern const bfd_target pdp11_aout_vec;
 extern const bfd_target pef_vec;
 extern const bfd_target pef_xlib_vec;
@@ -955,6 +957,7 @@ extern const bfd_target z8k_coff_vec;
 extern const bfd_target srec_vec;
 extern const bfd_target symbolsrec_vec;
 extern const bfd_target verilog_vec;
+extern const bfd_target dec_rim_vec;
 extern const bfd_target tekhex_vec;
 extern const bfd_target binary_vec;
 extern const bfd_target ihex_vec;
@@ -1230,6 +1233,7 @@ static const bfd_target * const _bfd_target_vector[] =
 
 	&pdb_vec,
 
+	&pdp1_elf32_vec,
 	&pdp11_aout_vec,
 
 	&pef_vec,
@@ -1385,6 +1389,7 @@ static const bfd_target * const _bfd_target_vector[] =
 	&symbolsrec_vec,
 /* And verilog.  */
 	&verilog_vec,
+	&dec_rim_vec,
 /* And tekhex */
 	&tekhex_vec,
 /* Likewise for binary output.  */
@@ -1859,6 +1864,7 @@ bfd_flavour_name (enum bfd_flavour flavour)
     case bfd_target_tekhex_flavour: return "Tekhex";
     case bfd_target_srec_flavour: return "Srec";
     case bfd_target_verilog_flavour: return "Verilog";
+    case bfd_target_dec_rim_flavour: return "DEC RIM";
     case bfd_target_ihex_flavour: return "Ihex";
     case bfd_target_som_flavour: return "SOM";
     case bfd_target_msdos_flavour: return "MSDOS";

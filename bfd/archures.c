@@ -222,6 +222,7 @@ DESCRIPTION
 .#define bfd_mach_h8300sn	5
 .#define bfd_mach_h8300sx	6
 .#define bfd_mach_h8300sxn	7
+.  bfd_arch_pdp1,      {* DEC PDP-1.  *}
 .  bfd_arch_pdp11,     {* DEC PDP-11.  *}
 .  bfd_arch_powerpc,   {* PowerPC.  *}
 .#define bfd_mach_ppc		32
@@ -684,6 +685,7 @@ extern const bfd_arch_info_type bfd_nfp_arch;
 extern const bfd_arch_info_type bfd_nios2_arch;
 extern const bfd_arch_info_type bfd_ns32k_arch;
 extern const bfd_arch_info_type bfd_or1k_arch;
+extern const bfd_arch_info_type bfd_pdp1_arch;
 extern const bfd_arch_info_type bfd_pdp11_arch;
 extern const bfd_arch_info_type bfd_pj_arch;
 extern const bfd_arch_info_type bfd_powerpc_archs[];
@@ -773,6 +775,7 @@ static const bfd_arch_info_type * const bfd_archures_list[] =
     &bfd_nios2_arch,
     &bfd_ns32k_arch,
     &bfd_or1k_arch,
+    &bfd_pdp1_arch,
     &bfd_pdp11_arch,
     &bfd_powerpc_arch,
     &bfd_pru_arch,

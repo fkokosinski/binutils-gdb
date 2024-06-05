@@ -663,7 +663,7 @@ COMMON int flag_sectname_subst;
 #define OCTETS_PER_BYTE (1<<OCTETS_PER_BYTE_POWER)
 #endif
 #if OCTETS_PER_BYTE != (1<<OCTETS_PER_BYTE_POWER)
- #error "Octets per byte conflicts with its power-of-two definition!"
+ //#error "Octets per byte conflicts with its power-of-two definition!"
 #endif
 
 #if defined OBJ_ELF || defined OBJ_MAYBE_ELF

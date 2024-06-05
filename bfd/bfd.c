@@ -373,6 +373,7 @@ CODE_FRAGMENT
 .      struct ecoff_tdata *ecoff_obj_data;
 .      struct srec_data_struct *srec_data;
 .      struct verilog_data_struct *verilog_data;
+.      struct dec_rim_data_struct *dec_rim_data;
 .      struct ihex_data_struct *ihex_data;
 .      struct tekhex_data_struct *tekhex_data;
 .      struct elf_obj_tdata *elf_obj_data;
