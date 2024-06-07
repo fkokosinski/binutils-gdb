@@ -5,6 +5,8 @@
 
 extern const pdp1_opc_info_t pdp1_opc_info[128];
 
+static void s_pdp1_space (int);
+
 const char comment_chars[]        = "#";
 const char line_separator_chars[] = ";";
 const char line_comment_chars[]   = "#";
@@ -18,8 +20,19 @@ const pseudo_typeS md_pseudo_table[] =
   { "long", cons, 3 },
   { "short", cons, 3 },
   { "byte", cons, 3 },
+
+  { "space", s_pdp1_space, 0},
+  { "skip", s_pdp1_space, 0},
   {0, 0, 0}
 };
+
+/* s_space accepts number of frags per byte as an argument. For PDP-1 it's
+ * always equal to 3 frags */
+static void
+s_pdp1_space (int ignore ATTRIBUTE_UNUSED)
+{
+  s_space(3);
+}
 
 const char FLT_CHARS[] = "rRsSfFdDxXpP";
 const char EXP_CHARS[] = "eE";
