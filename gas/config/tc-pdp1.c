@@ -100,6 +100,7 @@ md_assemble (char *str)
   char *output = frag_more(3);
   int operand;
   int instr;
+  expressionS arg;
 
   start = skip_whitespace (str);
   end = find_whitespace (start);
@@ -125,10 +126,12 @@ md_assemble (char *str)
   instr = opcode->opcode;
   switch (opcode->type)
     {
+      case PDP1_INSTR_IMM:
       case PDP1_INSTR_MEMREF:
-	expressionS arg;
-	operand = 0;
+	if (operand > 4095)
+	  as_warn ("Value %d is too large; will be converted to %d", operand, operand & 07777);
 
+	operand = 0;
 	parse_exp_save_ilp (start, &arg);
 	fix_new_exp (frag_now,
 	             (&output[1] - frag_now->fr_literal),
@@ -138,18 +141,6 @@ md_assemble (char *str)
 		     BFD_RELOC_16);
 
 	instr |= operand & ~opcode->mask;
-	break;
-      case PDP1_INSTR_IMM:
-	/* TODO: support fixups/relocs here as well */
-	int bit = 0;
-	if (operand < 0)
-	  bit = 0010000;
-
-	operand = abs(operand);
-	if (operand > 4096)
-	  as_warn ("Value %d too large for imm instruction. Converted to %d", operand, operand & 07777);
-
-	instr |= (operand | bit) & ~opcode->mask;
 	break;
       case PDP1_INSTR_SHIFT:
 	if (operand < 0 || operand > 9)
@@ -228,7 +219,22 @@ md_apply_fix (fixS *fixP, valueT * valP, segT seg ATTRIBUTE_UNUSED)
   switch (fixP->fx_r_type)
     {
     case BFD_RELOC_16:
-      *buf = (*buf & 0x0000f0) | ((val >> 8) & 0x00000f);
+      /* 
+       * In PDP-1, negative immediate values in instructions are represented as
+       * follows:
+       *
+       *   neg_val = abs(val) | sign_bit
+       *
+       * where sign_bit = 0010000.
+       */
+      if (val < 0)
+        {
+          val = -val | 0010000;
+          *buf = (*buf & 0x0000e0) | ((val >> 8) & 0x00001f);
+        }
+      else 
+        *buf = (*buf & 0x0000f0) | ((val >> 8) & 0x00000f);
+
       buf++;
       *buf++ = (val >> 0) & 0x0000ff;
       break;
