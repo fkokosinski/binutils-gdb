@@ -119,9 +119,9 @@ dec_rim_write_object_contents (bfd *abfd)
         return false;
     }
 
-  /* write JMP 0 */
+  /* write JMP 300 */
   /* TODO: which addr should we jump to? */
-  int instr = 0600000 + 0;
+  int instr = 0600000 + 300;
   buffer[0] = ((instr >> 12) & 0000077) | 0x80;
   buffer[1] = ((instr >> 6) & 0000077) | 0x80;
   buffer[2] = ((instr >> 0) & 0000077) | 0x80;
