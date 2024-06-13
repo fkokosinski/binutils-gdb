@@ -44,7 +44,7 @@ dec_rim_set_section_contents (bfd *abfd,
   if (entry == NULL)
     return false;
 
-  data = (bfd_byte *) bfd_alloc (abfd, size * 2); /* DIO/JMP + INSTR for every line */
+  data = (bfd_byte *) bfd_alloc (abfd, size * 6); /* DIO/JMP + INSTR for every line */
   if (data == NULL)
     return false;
 
@@ -70,7 +70,7 @@ dec_rim_set_section_contents (bfd *abfd,
 
   entry->data = saved_data;
   entry->where = sec->lma + offset;
-  entry->size = size * 2;
+  entry->size = size * 6;
 
   /* sort records by address */
   tdata = abfd->tdata.dec_rim_data;
