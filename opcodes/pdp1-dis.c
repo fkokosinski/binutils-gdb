@@ -38,9 +38,10 @@ print_insn_pdp1 (bfd_vma addr, struct disassemble_info *info)
 
 	  switch (pdp1_opc.type)
 	    {
-	      case PDP1_INSTR_MEMREF:
-	      case PDP1_INSTR_SKIP_FLAG:
+              case PDP1_INSTR_MEMREF:
+              case PDP1_INSTR_SKIP_FLAG:
               case PDP1_INSTR_OP_FLAG:
+              case PDP1_INSTR_SKIP_GENERIC:
 	        fpr (stream, "%s %d", pdp1_opc.name, operand);
 		break;
 	      case PDP1_INSTR_IMM:

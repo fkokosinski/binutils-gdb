@@ -128,6 +128,7 @@ md_assemble (char *str)
     {
       case PDP1_INSTR_IMM:
       case PDP1_INSTR_MEMREF:
+      case PDP1_INSTR_SKIP_GENERIC:
 	if (operand > 4095)
 	  as_warn ("Value %d is too large; will be converted to %d", operand, operand & 07777);
 
